@@ -1,0 +1,49 @@
+Prime number  
+--> To find where a number is prime always run until square root N
+The time  complexity is always reduces as O(Root(N))
+ 1) Prime number logic brute force:
+ for(int i=0;i<= Root(N) ;i++)
+	   if(N%i==0)
+	   return false;
+	return true;
+
+2)Find the prime numbers between a interval O(N Root(N))
+for(int i=0;i<=N;i++)
+{
+isprime=0;
+    for(int j=2;j<= Root(i) ;j++)
+	  {    if(j%i==0)
+	        {
+		        isprime=1;
+		        break;
+		      }
+		}
+		 if(isprime==0)
+		 print(i)
+	}
+
+3)  Find Prime number using   Sieve of Eratosthanesis (Time Complexity is N log log N)
+  Number --> N
+	a[N+1]={1};
+	for(int i=2;i<= Root(N) ;i++)
+	{
+	// Check the whether the number is prime:
+	if(a[i])
+	{
+	for(int j=2;i*j<=N;j++)
+	{
+	a[i*j]=0;
+	}
+	}
+	}
+	
+	4) Prime Factor for a number
+	for(int i=2;i<= Root(N);i++) //O(log N)
+	{
+	    while(N%i==0)    //O(log N)
+			{
+			 N/=i;
+			 print(i)
+			}
+				
+	}
