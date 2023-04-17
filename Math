@@ -7,6 +7,7 @@ The time  complexity is always reduces as O(Root(N))
 	   return false;
 	return true;
 
+------------------------------------------------------------------------------------------------------------------------------------------
 2)Find the prime numbers between a interval O(N Root(N))
 for(int i=0;i<=N;i++)
 {
@@ -22,11 +23,12 @@ isprime=0;
 		 print(i)
 	}
 
+-------------------------------------------------------------------------------------------------------------------------
 3)  Find Prime number using   Sieve of Eratosthanesis (Time Complexity is N log log N)
   Number --> N
 	a[N+1]={1};
-	for(int i=2;i<= Root(N) ;i++)
-	{
+for(int i=2;i<= Root(N) ;i++)
+{
 	// Check the whether the number is prime:
 	if(a[i])
 	{
@@ -35,9 +37,10 @@ isprime=0;
 	a[i*j]=0;
 	}
 	}
-	}
+}
 	
-	4) Prime Factor for a number
+-----------------------------------------------------------------------------------------------------------------------	
+4) Prime Factor for a number
 	for(int i=2;i<= Root(N);i++) //O(log N)
 	{
 	    while(N%i==0)    //O(log N)
@@ -47,3 +50,88 @@ isprime=0;
 			}
 				
 	}
+
+------------------------------------------------------------------------------------------------------------------------------
+5) Binomial Coefficient (N C R)
+ 
+ // Consider a pascal triangle to fint the combination
+ 
+ indexs   0     1    2    3    4 
+            |
+  0       1 |
+            |
+  1       1 |   1
+            |
+  2       1 |    2    1
+            |
+  3       1 |   3    3    1
+            |
+  4  ---> 1 |    4    6    4     1
+          <-|
+  
+  -->  4 C 0 = 1
+  
+  
+  Code
+  
+  //
+  for(int i=0;i<n;i++)
+  {
+       for(int j=0;j<i;j++)
+       {
+          if(j==0 || i==j)
+	  a[i][j]=1;
+	  else
+	  {
+	  a[i][j]=a[i-1][j]+a[i][j-1];
+	  }
+       }
+  }
+  
+  ----------------------------------------------------------------------------------------------------------------
+ 
+ 6) Distributive Property
+ (a+b)%c=((a%c) + (b%c)) %c
+   *            *
+   -            -
+   
+   
+-------------------------------------------------------------------------------------------------------------------
+
+7) Euclidean algorithm(GCD)
+  36 --> 2 * 2 * 3 * 3
+  60 --> 2 * 2 * 3 * 5       ( GCD of 36,60 is 12 )
+  
+  //Code
+  
+  int gcd(int a,int b)
+  {
+  if(a==0)
+  return b;
+  gcd(b%a,a)
+  }
+  
+  --------------------------------------------------------------------------------------------------------------------------
+  
+8) Binary Exponentiation
+
+a^b ---> a*a*a......(b times)
+
+for this we have O(b) time complexity
+
+In order to redue the time complexity to O(root b)
+  
+   Square the base a and divide / by 2 the power
+   res=1;
+   //Code
+   while(b>0)
+   {
+      if(b%2==1)
+      res*=a;
+      // square the base a 
+      a*=a
+      //dividing the power by 2
+      b/=2;
+   }
+   return res;
+  
